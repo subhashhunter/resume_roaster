@@ -1,8 +1,8 @@
 from fastapi import FastAPI, UploadFile, Path
-from utils.file import save_to_disk
-from db.collections.files import FileSchema, files_collection
-from queues.q import q
-from queues.worker import process_file
+from .utils.file import save_to_disk
+from .db.collections.files import FileSchema, files_collection
+from .queues.q import q
+from .queues.worker import process_file
 from bson import ObjectId
 app = FastAPI()
 

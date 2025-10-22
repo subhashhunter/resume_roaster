@@ -1,13 +1,14 @@
-from db.collections.files import files_collection
+from ..db.collections.files import files_collection
 from bson import ObjectId
 from pdf2image import convert_from_path
 import os
+from dotenv import load_dotenv
 
 from google import genai
 from google.genai import types
-
-
-client = genai.Client()
+load_dotenv()
+API_KEY = os.getenv("API_KEY") 
+client = genai.Client(api_key=API_KEY)
 
 
 async def process_file(id: str, file_path: str):
